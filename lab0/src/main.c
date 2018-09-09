@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<ctype.h>
 #include<math.h>
+#include<string.h>
 
 double pow_int (int a, int b)
 {
@@ -21,7 +22,7 @@ int main() {
     int b1, b2;
     scanf("%d %d\n", &b1, &b2);
     char X[13];
-    gets(X);
+    scanf("%s", X);
 
     int len = 0;
     int power = 0;
@@ -73,7 +74,6 @@ int main() {
 
     double fraction = modf(number, &number);
     long long whole = (long long)number;
-    int len_whole = 0;
     char whole_str[50];
     int i = 0;
 

@@ -26,18 +26,18 @@
 |prim-kruskal  |[![build12][]][build-link]|
 |dijkstra-path |[![build13][]][build-link]|
 
-[build1]: https://travis-matrix-badges.herokuapp.com/repos/bobrofon/nsu_prog_labs/branches/master/1
-[build2]: https://travis-matrix-badges.herokuapp.com/repos/bobrofon/nsu_prog_labs/branches/master/2
-[build3]: https://travis-matrix-badges.herokuapp.com/repos/bobrofon/nsu_prog_labs/branches/master/3
-[build4]: https://travis-matrix-badges.herokuapp.com/repos/bobrofon/nsu_prog_labs/branches/master/4
-[build5]: https://travis-matrix-badges.herokuapp.com/repos/bobrofon/nsu_prog_labs/branches/master/5
-[build6]: https://travis-matrix-badges.herokuapp.com/repos/bobrofon/nsu_prog_labs/branches/master/6
-[build7]: https://travis-matrix-badges.herokuapp.com/repos/bobrofon/nsu_prog_labs/branches/master/7
-[build8]: https://travis-matrix-badges.herokuapp.com/repos/bobrofon/nsu_prog_labs/branches/master/8
-[build9]: https://travis-matrix-badges.herokuapp.com/repos/bobrofon/nsu_prog_labs/branches/master/9
-[build10]: https://travis-matrix-badges.herokuapp.com/repos/bobrofon/nsu_prog_labs/branches/master/10
-[build11]: https://travis-matrix-badges.herokuapp.com/repos/bobrofon/nsu_prog_labs/branches/master/11
-[build12]: https://travis-matrix-badges.herokuapp.com/repos/bobrofon/nsu_prog_labs/branches/master/12
-[build13]: https://travis-matrix-badges.herokuapp.com/repos/bobrofon/nsu_prog_labs/branches/master/13
+[build1]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/1
+[build2]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/2
+[build3]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/3
+[build4]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/4
+[build5]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/5
+[build6]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/6
+[build7]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/7
+[build8]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/8
+[build9]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/9
+[build10]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/10
+[build11]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/11
+[build12]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/12
+[build13]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/13
 
-[build-link]: https://travis-ci.org/bobrofon/nsu_prog_labs
+[build-link]: https://travis-ci.org/User-Xolli/nsu_prog_labs

@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<string.h>
+#include<stdlib.h>
 
 #define SIZE 16 // SIZE = 2^k
 
@@ -8,7 +9,7 @@ struct Ring_Buffer
 {
     int write_count;
     int mask; //mask = 2^k - 1
-    char data[SIZE];
+    char *data;
 };
 
 void write(struct Ring_Buffer *buff, const char *value, const int *len_value)
@@ -28,14 +29,14 @@ char get_elem(const struct Ring_Buffer *buff, const int i)
 
 int main()
 {
-    char pattern[17];
+    char *pattern = malloc(sizeof(char) * 17);
     if (scanf("%[^\n]%*c", pattern) == 1)
     {
         // remove error "gnoring return value of ‘scanf’, declared with attribute warn_unused_result"
     }
 
     int len = (int) strlen(pattern);
-    int p[256]; //table of shifts
+    int *p = malloc(sizeof(int) * 256); //table of shifts
     for (int i = 0; i < 256; ++i)
     {
         p[i] = len;
@@ -51,12 +52,13 @@ int main()
     }
 
     struct Ring_Buffer buffer;
+    buffer.data = malloc(sizeof(char) * SIZE);
     buffer.write_count = 0;
     buffer.mask = SIZE - 1;
 
     int pos = len - 1; //position of pattern`s last symbol in text
 
-    char symbols[16]; //part text
+    char *symbols = malloc(sizeof(char) * 17); //part text
     int read_symb_count = (int) fread(symbols, sizeof(char), (size_t) (pos - buffer.write_count) + 1, stdin);
     write(&buffer, symbols, &read_symb_count);
 
@@ -82,5 +84,8 @@ int main()
         write(&buffer, symbols, &read_symb_count);
     }
     printf("\n");
+    free(pattern);
+    free(symbols);
+    free(buffer.data);
     return 0;
 }

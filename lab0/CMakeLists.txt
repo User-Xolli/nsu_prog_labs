@@ -7,7 +7,12 @@ set(SRC src/main.c)
 
 add_executable(${PROJECT_NAME} ${SRC})
 
+if(${CMAKE_C_COMPILER} STREQUAL "GNU")
+	target_link_libraries(${PROJECT_NAME} m)
+endif()
+
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/../modules")
 include(enable_warnings)
-include(valgrind)
+include(cpp_check)
 include(test_runner)
+include(enable_sanitizers)

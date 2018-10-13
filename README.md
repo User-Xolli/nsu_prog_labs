@@ -1,7 +1,7 @@
 # nsu_prog_labs
 ## How-to
 * fork repo
-* setup repo in https://travis-ci.org/
+* setup repo in https://appveyor.com/
 * fix links in readme
 * implement some tasks
 * create pull request (it will be rejected anyway)
@@ -26,18 +26,18 @@
 |prim-kruskal  |[![build12][]][build-link]|
 |dijkstra-path |[![build13][]][build-link]|
 
-[build1]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/1
-[build2]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/2
-[build3]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/3
-[build4]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/4
-[build5]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/5
-[build6]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/6
-[build7]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/7
-[build8]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/8
-[build9]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/9
-[build10]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/10
-[build11]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/11
-[build12]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/12
-[build13]: https://travis-matrix-badges.herokuapp.com/repos/User-Xolli/nsu_prog_labs/branches/master/13
+[build1]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/1
+[build2]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/2
+[build3]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/3
+[build4]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/4
+[build5]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/5
+[build6]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/6
+[build7]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/7
+[build8]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/8
+[build9]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/9
+[build10]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/10
+[build11]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/11
+[build12]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/12
+[build13]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/13
 
-[build-link]: https://travis-ci.org/User-Xolli/nsu_prog_labs
+[build-link]: https://ci.appveyor.com/project/bobrofon/nsu-prog-labs

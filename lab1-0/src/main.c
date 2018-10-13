@@ -28,8 +28,12 @@ char get_elem(const struct Ring_Buffer *buff, const int i)
 
 int main()
 {
-    char pattern[16];
-    scanf("%[^\n]%*c", pattern);
+    char pattern[17];
+    if (scanf("%[^\n]%*c", pattern) == 1)
+    {
+        // remove error "gnoring return value of ‘scanf’, declared with attribute warn_unused_result"
+    }
+
     int len = (int) strlen(pattern);
     int p[256]; //table of shifts
     for (int i = 0; i < 256; ++i)

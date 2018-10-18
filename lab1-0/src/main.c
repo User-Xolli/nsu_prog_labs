@@ -2,90 +2,122 @@
 #include<string.h>
 #include<stdlib.h>
 
-#define SIZE 16 // SIZE = 2^k
+#define K 4
+#define SIZE (2 << K)
 
-
-struct Ring_Buffer
+struct RingBuffer
 {
-    int write_count;
-    int mask; //mask = 2^k - 1
-    char *data;
+	unsigned int write_count;
+	unsigned int mask; //mask = 2^k - 1
+	char *data;
 };
 
-void write(struct Ring_Buffer *buff, const char *value, const int *len_value)
+static void write(struct RingBuffer *buff, const char *value, int len_value);
+
+static void write(struct RingBuffer *buff, const char *value, int len_value)
 {
-    for (int i = 0; i < *len_value; ++i)
-    {
-        buff->data[buff->write_count & buff->mask] = value[i];
-        ++buff->write_count;
-    }
+	for (int i = 0; i < len_value; ++i)
+	{
+		buff->data[buff->write_count & buff->mask] = value[i];
+		++buff->write_count;
+	}
 }
 
-char get_elem(const struct Ring_Buffer *buff, const int i)
+static char get_elem(const struct RingBuffer *buff, unsigned int i);
+
+static char get_elem(const struct RingBuffer *buff, unsigned int i)
 {
-    return buff->data[i & buff->mask];
+	return buff->data[i & buff->mask];
 }
 
+static void check_null(void *ptr)
+{
+	if (ptr == NULL)
+	{
+		perror("No memory");
+		exit(EXIT_FAILURE);
+	}
+}
+
+static void constructor(struct RingBuffer *buff)
+{
+	buff->write_count = 0;
+	buff->mask = SIZE - 1;
+	buff->data = malloc(sizeof(char) * SIZE);
+	check_null(buff->data);
+}
+
+static void check_read(int read_len)
+{
+	if (read_len == 0)
+	{
+		perror("Cannot read search pattern");
+		exit(EXIT_FAILURE);
+	}
+}
 
 int main()
 {
-    char *pattern = malloc(sizeof(char) * 17);
-    if (scanf("%[^\n]%*c", pattern) == 1)
-    {
-        // remove error "gnoring return value of ‘scanf’, declared with attribute warn_unused_result"
-    }
+	char *pattern = malloc(sizeof(char) * 17);
+	check_null(pattern);
+	check_read(scanf("%16[^\n]%*c", pattern));
+	size_t len = strlen(pattern);
+	unsigned int *p = malloc(sizeof(int) * 256); //table of shifts
+	check_null(p);
+	for (int i = 0; i < 256; ++i)
+	{
+		p[i] = (unsigned int) len;
+	}
+	unsigned int *d = p + 128; //table shifts with negative number
+	for (unsigned int i = 0; i + 1 < len; ++i)
+	{
+		if (d[(int) pattern[i]] + i + 1 > len)
+		{
+			d[(int) pattern[i]] = (unsigned int) len - i - 1; //constructing table of shifts
+		}
+	}
+	struct RingBuffer buffer;
+	constructor(&buffer);
 
-    int len = (int) strlen(pattern);
-    int *p = malloc(sizeof(int) * 256); //table of shifts
-    for (int i = 0; i < 256; ++i)
-    {
-        p[i] = len;
-    }
-    int *d = p + 128; //table shifts with negative number
+	unsigned int pos = (unsigned int) len - 1; //position of pattern`s last symbol in text
 
-    for (int i = 0; i + 1 < len; ++i)
-    {
-        if (d[(int) pattern[i]] > len - i - 1)
-        {
-            d[(int) pattern[i]] = len - i - 1; //constructing table of shifts
-        }
-    }
+	char *symbols = malloc(sizeof(char) * 17); //part text
+	check_null(symbols);
 
-    struct Ring_Buffer buffer;
-    buffer.data = malloc(sizeof(char) * SIZE);
-    buffer.write_count = 0;
-    buffer.mask = SIZE - 1;
+	size_t read_symb_count = fread(symbols, sizeof(char), (size_t) (pos - buffer.write_count) + 1, stdin);
+	write(&buffer, symbols, (int) read_symb_count);
 
-    int pos = len - 1; //position of pattern`s last symbol in text
+	while (read_symb_count != 0 && pos < buffer.write_count)
+	{
+		if (pos >= buffer.write_count)
+		{
+			read_symb_count = fread(symbols, sizeof(char), (size_t) (pos - buffer.write_count) + 1, stdin);
+			write(&buffer, symbols, (int) read_symb_count);
+		}
 
-    char *symbols = malloc(sizeof(char) * 17); //part text
-    int read_symb_count = (int) fread(symbols, sizeof(char), (size_t) (pos - buffer.write_count) + 1, stdin);
-    write(&buffer, symbols, &read_symb_count);
+		unsigned int concurrences = 0;
+		while (get_elem(&buffer, pos - concurrences) == pattern[len - concurrences - 1] && len >= concurrences + 1)
+		{
+			printf("%d ", pos - concurrences + 1);
+			++concurrences;
+		}
+		if (concurrences != len)
+		{
+			printf("%d ", pos - concurrences + 1);
+		}
 
-    while (read_symb_count != 0 && pos < buffer.write_count)
-    {
-        read_symb_count = (int) fread(symbols, sizeof(char), (size_t) (pos - buffer.write_count) + 1, stdin);
-        write(&buffer, symbols, &read_symb_count);
+		pos += d[(int) get_elem(&buffer, pos)];
 
-        int concurrences = 0;
-
-        while (get_elem(&buffer, pos - concurrences) == pattern[len - concurrences - 1] && len - concurrences - 1 >= 0)
-        {
-            printf("%d ", pos - concurrences + 1);
-            ++concurrences;
-        }
-        if (concurrences != len)
-        {
-            printf("%d ", pos - concurrences + 1);
-        }
-        pos += d[(int) get_elem(&buffer, pos)];
-
-        read_symb_count = (int) fread(symbols, sizeof(char), (size_t) (pos - buffer.write_count) + 1, stdin);
-        write(&buffer, symbols, &read_symb_count);
-    }
-    printf("\n");
-    free(pattern);
-    free(symbols);
-    free(buffer.data);
-    return 0;
+		if (pos >= buffer.write_count)
+		{
+			read_symb_count = fread(symbols, sizeof(char), (size_t) (pos - buffer.write_count) + 1, stdin);
+			write(&buffer, symbols, (int) read_symb_count);
+		}
+	}
+	printf("\n");
+	free(pattern);
+	free(p);
+	free(buffer.data);
+	free(symbols);
+	return 0;
 }

@@ -26,18 +26,18 @@
 |prim-kruskal  |[![build12][]][build-link]|
 |dijkstra-path |[![build13][]][build-link]|
 
-[build1]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/1
-[build2]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/2
-[build3]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/3
-[build4]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/4
-[build5]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/5
-[build6]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/6
-[build7]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/7
-[build8]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/8
-[build9]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/9
-[build10]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/10
-[build11]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/11
-[build12]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/12
-[build13]: https://appveyor-matrix-badges.herokuapp.com/repos/bobrofon/nsu-prog-labs/branch/master/13
+[build1]: https://appveyor-matrix-badges.herokuapp.com/repos/User-Xolli/nsu-prog-labs/branch/master/1
+[build2]: https://appveyor-matrix-badges.herokuapp.com/repos/User-Xolli/nsu-prog-labs/branch/master/2
+[build3]: https://appveyor-matrix-badges.herokuapp.com/repos/User-Xolli/nsu-prog-labs/branch/master/3
+[build4]: https://appveyor-matrix-badges.herokuapp.com/repos/User-Xolli/nsu-prog-labs/branch/master/4
+[build5]: https://appveyor-matrix-badges.herokuapp.com/repos/User-Xolli/nsu-prog-labs/branch/master/5
+[build6]: https://appveyor-matrix-badges.herokuapp.com/repos/User-Xolli/nsu-prog-labs/branch/master/6
+[build7]: https://appveyor-matrix-badges.herokuapp.com/repos/User-Xolli/nsu-prog-labs/branch/master/7
+[build8]: https://appveyor-matrix-badges.herokuapp.com/repos/User-Xolli/nsu-prog-labs/branch/master/8
+[build9]: https://appveyor-matrix-badges.herokuapp.com/repos/User-Xolli/nsu-prog-labs/branch/master/9
+[build10]: https://appveyor-matrix-badges.herokuapp.com/repos/User-Xolli/nsu-prog-labs/branch/master/10
+[build11]: https://appveyor-matrix-badges.herokuapp.com/repos/User-Xolli/nsu-prog-labs/branch/master/11
+[build12]: https://appveyor-matrix-badges.herokuapp.com/repos/User-Xolli/nsu-prog-labs/branch/master/12
+[build13]: https://appveyor-matrix-badges.herokuapp.com/repos/User-Xolli/nsu-prog-labs/branch/master/13
 
-[build-link]: https://ci.appveyor.com/project/bobrofon/nsu-prog-labs
+[build-link]: https://ci.appveyor.com/project/User-Xolli/nsu-prog-labs

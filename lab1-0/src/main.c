@@ -62,7 +62,7 @@ int main()
 	check_null(pattern);
 	check_read(scanf("%16[^\n]%*c", pattern));
 	size_t len = strlen(pattern);
-	unsigned int *p = malloc(sizeof(int) * 256); //table of shifts
+	unsigned int *p = malloc(sizeof(unsigned int) * 256); //table of shifts
 	check_null(p);
 	for (int i = 0; i < 256; ++i)
 	{
@@ -84,34 +84,28 @@ int main()
 	char *symbols = malloc(sizeof(char) * 17); //part text
 	check_null(symbols);
 
-	size_t read_symb_count = fread(symbols, sizeof(char), (size_t) (pos - buffer.write_count) + 1, stdin);
-	write(&buffer, symbols, (int) read_symb_count);
+	size_t read_symbols_count = fread(symbols, sizeof(char), (size_t) (pos - buffer.write_count) + 1, stdin);
+	write(&buffer, symbols, (int) read_symbols_count);
 
-	while (read_symb_count != 0 && pos < buffer.write_count)
+	while (read_symbols_count != 0 && pos < buffer.write_count)
 	{
-		if (pos >= buffer.write_count)
+	    unsigned int concurrences = 0;
+		while (len >= concurrences + 1 && get_elem(&buffer, pos - concurrences) == pattern[len - concurrences - 1])
 		{
-			read_symb_count = fread(symbols, sizeof(char), (size_t) (pos - buffer.write_count) + 1, stdin);
-			write(&buffer, symbols, (int) read_symb_count);
-		}
-
-		unsigned int concurrences = 0;
-		while (get_elem(&buffer, pos - concurrences) == pattern[len - concurrences - 1] && len >= concurrences + 1)
-		{
-			printf("%d ", pos - concurrences + 1);
+			printf("%u ", pos - concurrences + 1);
 			++concurrences;
 		}
 		if (concurrences != len)
 		{
-			printf("%d ", pos - concurrences + 1);
+			printf("%u ", pos - concurrences + 1);
 		}
 
 		pos += d[(int) get_elem(&buffer, pos)];
 
 		if (pos >= buffer.write_count)
 		{
-			read_symb_count = fread(symbols, sizeof(char), (size_t) (pos - buffer.write_count) + 1, stdin);
-			write(&buffer, symbols, (int) read_symb_count);
+			read_symbols_count = fread(symbols, sizeof(char), (size_t) (pos - buffer.write_count) + 1, stdin);
+			write(&buffer, symbols, (int) read_symbols_count);
 		}
 	}
 	printf("\n");

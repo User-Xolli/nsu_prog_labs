@@ -1,9 +1,10 @@
 set(TEST_RUNNER_NAME "test${PROJECT_NAME}.exe")
-set(TEST_RUNNER_PATH ${CMAKE_CURRENT_SOURCE_DIR}/test/${TEST_RUNNER_NAME})
 
 if(UNIX)
-	set(TEST_RUNNER_PATH "wine ${TEST_RUNNER_PATH}")
-endif(UNIX)
+	set(TEST_RUNNER_PATH wine ${CMAKE_CURRENT_SOURCE_DIR}/test/${TEST_RUNNER_NAME})
+else()
+	set(TEST_RUNNER_PATH ${CMAKE_CURRENT_SOURCE_DIR}/test/${TEST_RUNNER_NAME})
+endif()
 
 include (CTest)
 enable_testing()

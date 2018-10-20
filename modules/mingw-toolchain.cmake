@@ -3,7 +3,6 @@
 #    *) cd build
 #    *) cmake -DCMAKE_TOOLCHAIN_FILE=mingw-toolchain.cmake ..
 
-set(CMAKE_SYSTEM_NAME Windows)
 set(TOOLCHAIN_PREFIX i686-w64-mingw32)
 
 # cross compilers to use for C

@@ -9,7 +9,7 @@ struct RingBuffer
 {
 	unsigned int write_count;
 	unsigned int mask; //mask = 2^k - 1
-	char *data;
+	char data[SIZE];
 };
 
 static void write(struct RingBuffer *buff, const char *value, int len_value);
@@ -43,8 +43,6 @@ static void constructor(struct RingBuffer *buff)
 {
 	buff->write_count = 0;
 	buff->mask = SIZE - 1;
-	buff->data = malloc(sizeof(char) * SIZE);
-	check_null(buff->data);
 }
 
 static void check_read(int read_len)
@@ -58,8 +56,7 @@ static void check_read(int read_len)
 
 int main()
 {
-	char *pattern = malloc(sizeof(char) * 17);
-	check_null(pattern);
+	char pattern[17];
 	check_read(scanf("%16[^\n]%*c", pattern));
 	size_t len = strlen(pattern);
 	unsigned int *p = malloc(sizeof(unsigned int) * 256); //table of shifts
@@ -81,8 +78,7 @@ int main()
 
 	unsigned int pos = (unsigned int) len - 1; //position of pattern`s last symbol in text
 
-	char *symbols = malloc(sizeof(char) * 17); //part text
-	check_null(symbols);
+	char symbols[17]; //part text
 
 	size_t read_symbols_count = fread(symbols, sizeof(char), (size_t) (pos - buffer.write_count) + 1, stdin);
 	write(&buffer, symbols, (int) read_symbols_count);
@@ -109,9 +105,6 @@ int main()
 		}
 	}
 	printf("\n");
-	free(pattern);
 	free(p);
-	free(buffer.data);
-	free(symbols);
 	return 0;
 }

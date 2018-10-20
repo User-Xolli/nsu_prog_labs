@@ -4,7 +4,9 @@
 #include<string.h>
 #define MAX_LEN_NUMBER 15
 
-double pow_int (int a, int b)
+double pow_int (int a, int b);
+
+double pow_int(int a, int b)
 {
     double ans = 1;
 
@@ -18,7 +20,9 @@ double pow_int (int a, int b)
     return ans;
 }
 
-int power_number (char* X, int len)
+int power_number (char *X, int len);
+
+int power_number(char *X, int len)
 {
     int ans = 0;
     int is_integer_part = 1;
@@ -37,6 +41,8 @@ int power_number (char* X, int len)
     return ans - 1;
 }
 
+int bad_digit(char x, int base);
+
 int bad_digit(char x, int base)
 {
     return (base <= 10 && isalpha(x)) || //Если осн. СС <= 10 и в записи числа есть буква то bad input
@@ -44,21 +50,23 @@ int bad_digit(char x, int base)
         (base <= 10 && x - '0' >= base); // (x - '0') перевод цифры x из строки в число
 }
 
+void print_whole(long long x, int base);
+
 void print_whole(long long x, int base)
 {
     int i = 0;
     char x_str[50]; // макс длина числа меньше 50 т.к. при переводе числа с 12 цифрами и точкой из СС с осн. 16
-    // в СС с осн. 2 получим число длиной 12 * 4 + 1 = 49
+                    // в СС с осн. 2 получим число длиной 12 * 4 + 1 = 49
 
     if (x == 0) printf("0");
 
     while (x != 0)
     {
-        int digit = x % base;
+        int digit = (int)(x % base);
 
-        if (digit <= 9) x_str[i] = '0' + digit;
+        if (digit <= 9) x_str[i] = (char)('0' + digit);
 
-        else x_str[i] = 'A' + digit - 10;
+        else x_str[i] = (char)('A' + digit - 10);
 
         ++i;
         x /= base;
@@ -67,6 +75,8 @@ void print_whole(long long x, int base)
 
     for (; i >= 0; --i) printf("%c", x_str[i]);
 }
+
+void print_fraction(double x, int base);
 
 void print_fraction(double x, int base)
 {
@@ -87,13 +97,14 @@ void print_fraction(double x, int base)
     }
 }
 
-int main() {
+int main()
+{
     int b1, b2;
     scanf("%d %d\n", &b1, &b2);
     char X[MAX_LEN_NUMBER];
-    scanf("%s", X);
+    scanf("%14s", X);
 
-    int len = strlen(X);
+    int len = (int)strlen(X);
     int power = power_number(X, len);
 
     if (power == -1 ||
@@ -108,8 +119,9 @@ int main() {
 
     double number = 0;
 
-    for (int i = 0; i < len; ++i) {
-        if (islower(X[i])) X[i] = toupper(X[i]);
+    for (int i = 0; i < len; ++i)
+    {
+        X[i] = (char)(toupper(X[i]));
 
         if (bad_digit(X[i], b1))
         {

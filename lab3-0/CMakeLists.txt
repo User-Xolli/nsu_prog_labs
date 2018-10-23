@@ -3,7 +3,7 @@ project(lab3-0 C)
 
 set(CMAKE_C_STANDARD 99)
 
-set(SRC src/main.c)
+set(SRC src/main.c src/BinaryHeap.c src/BinaryHeap.h)
 
 add_executable(${PROJECT_NAME} ${SRC})
 

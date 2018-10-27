@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void swap (int* a, int* b);
-void swap (int* a, int* b)
+static void swap (int* a, int* b);
+static void swap (int* a, int* b)
 {
     int tmp = *a;
     *a = *b;
     *b = tmp;
 }
 
-void quick_sort (int *array, int left, int right);
-void quick_sort (int *array, int left, int right) // using Hoare partition scheme
+static void quick_sort (int *array, int left, int right);
+static void quick_sort (int *array, int left, int right) // using Hoare partition scheme
 {
     if (left < right)
     {

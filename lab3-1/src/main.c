@@ -2,8 +2,7 @@
 #include <stdlib.h>
 #include <errno.h>
 
-void swap (int* a, int* b);
-void swap (int* a, int* b)
+static void swap (int* a, int* b)
 {
     int tmp = *a;
     *a = *b;

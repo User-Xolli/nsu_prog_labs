@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <errno.h>
 
-static void swap (int* a, int* b);
-static void swap (int* a, int* b)
+void swap (int* a, int* b);
+void swap (int* a, int* b)
 {
     int tmp = *a;
     *a = *b;
@@ -49,6 +50,12 @@ int main(void)
     int n;
     scanf ("%d", &n);
     int* array = malloc (sizeof(int) * (size_t)n);
+    if (array == NULL)
+    {
+        errno = ENOMEM;
+        perror("No Memory\n");
+        return EXIT_FAILURE;
+    }
     for (int i = 0; i < n; ++i)
     {
         scanf ("%d", &array[i]);
@@ -59,5 +66,6 @@ int main(void)
         printf ("%d ", array[i]);
     }
     printf ("\n");
+    free (array);
     return 0;
 }

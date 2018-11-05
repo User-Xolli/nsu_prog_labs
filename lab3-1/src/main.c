@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <errno.h>
 
 static void swap (int* a, int* b)
 {
@@ -9,7 +8,6 @@ static void swap (int* a, int* b)
     *b = tmp;
 }
 
-static void quick_sort (int *array, int left, int right);
 static void quick_sort (int *array, int left, int right) // using Hoare partition scheme
 {
     if (left < right)
@@ -51,7 +49,6 @@ int main(void)
     int* array = malloc (sizeof(int) * (size_t)n);
     if (array == NULL)
     {
-        errno = ENOMEM;
         perror("No Memory\n");
         return EXIT_FAILURE;
     }

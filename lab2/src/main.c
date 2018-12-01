@@ -1,17 +1,29 @@
 #include <stdlib.h>
+#include <ctype.h>
 #include <stdio.h>
 #include <stdbool.h>
 #include "next_permutation.h"
-#include "number_string.h"
 
 #define MAX_SIZE 11
+
+int to_number(char number)
+{
+    if (isdigit(number))
+    {
+        return number - '0';
+    }
+    else
+    {
+        return -1;
+    }
+}
 
 static bool bad_input(char *str)
 {
     bool number_exist[MAX_SIZE] = {false};
-    for (int i = 0; i < (int)strlen(str); ++i)
+    for (int i = 0; i < strlen(str); ++i)
     {
-        if (!is_number(str[i]) || number_exist[to_number(str[i])])
+        if (!isdigit(str[i]) || number_exist[to_number(str[i])])
         {
             return true;
         }

@@ -3,7 +3,7 @@ project(lab2 C)
 
 set(CMAKE_C_STANDARD 99)
 
-set(SRC src/main.c src/next_permutation.h src/next_permutation.c src/number_string.h src/number_string.c)
+set(SRC src/main.c src/next_permutation.h src/next_permutation.c)
 
 add_executable(${PROJECT_NAME} ${SRC})
 

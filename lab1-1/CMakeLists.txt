@@ -3,7 +3,7 @@ project(lab1-1 C)
 
 set(CMAKE_C_STANDARD 99)
 
-set(SRC src/main.c)
+set(SRC src/main.c src/ring_buffer.h src/ring_buffer.c src/search_substring.c src/search_substring.h)
 
 add_executable(${PROJECT_NAME} ${SRC})
 

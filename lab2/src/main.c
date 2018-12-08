@@ -2,9 +2,12 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <string.h>
+
 #include "next_permutation.h"
 
 #define MAX_SIZE 11
+#define ALL_NUMBERS 10
 
 int to_number(char number)
 {
@@ -20,8 +23,8 @@ int to_number(char number)
 
 static bool bad_input(char *str)
 {
-    bool number_exist[MAX_SIZE] = {false};
-    for (int i = 0; i < strlen(str); ++i)
+    bool number_exist[ALL_NUMBERS] = {false};
+    for (size_t i = 0; i < strlen(str); ++i)
     {
         if (!isdigit(str[i]) || number_exist[to_number(str[i])])
         {

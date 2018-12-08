@@ -9,7 +9,7 @@
 #define MAX_SIZE 11
 #define ALL_NUMBERS 10
 
-int to_number(char number)
+static  int to_number(char number)
 {
     if (isdigit(number))
     {
@@ -24,7 +24,8 @@ int to_number(char number)
 static bool bad_input(char *str)
 {
     bool number_exist[ALL_NUMBERS] = {false};
-    for (size_t i = 0; i < strlen(str); ++i)
+    size_t len = strlen(str);
+    for (size_t i = 0; i < len; ++i)
     {
         if (!isdigit(str[i]) || number_exist[to_number(str[i])])
         {

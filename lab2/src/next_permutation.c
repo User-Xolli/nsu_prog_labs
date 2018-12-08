@@ -2,9 +2,9 @@
 
 #include "next_permutation.h"
 
-#define NOT_MODIIFICATION 1 << 30
+#define NOT_MODIIFICATION (1 << 30)
 
-void swap(char *a, char *b)
+static void swap(char *a, char *b)
 {
     char tmp;
     tmp = *a;
@@ -12,10 +12,10 @@ void swap(char *a, char *b)
     *b = tmp;
 }
 
-void reverse(char *str)
+static void reverse(char *str)
 {
     size_t len = strlen(str);
-    for (size_t i = 0; 2 * i < strlen(str); ++i)
+    for (size_t i = 0; 2 * i < len; ++i)
     {
         swap(&str[i], &str[len - i - 1]);
     }

@@ -1,6 +1,10 @@
+#include <string.h>
+
 #include "next_permutation.h"
 
-void swap(char *a, char *b)
+#define NOT_MODIIFICATION (1 << 30)
+
+static void swap(char *a, char *b)
 {
     char tmp;
     tmp = *a;
@@ -8,10 +12,10 @@ void swap(char *a, char *b)
     *b = tmp;
 }
 
-void reverse(char *str)
+static void reverse(char *str)
 {
-    int len = strlen(str);
-    for (int i = 0; 2 * i < strlen(str); ++i)
+    size_t len = strlen(str);
+    for (size_t i = 0; 2 * i < len; ++i)
     {
         swap(&str[i], &str[len - i - 1]);
     }
@@ -19,8 +23,8 @@ void reverse(char *str)
 
 bool next_permutation(char *str)
 {
-    int index_smaller = -1;
-    for (int i = strlen(str) - 1; i > 0; --i)
+    size_t index_smaller = NOT_MODIIFICATION;
+    for (size_t i = strlen(str) - 1; i > 0; --i)
     {
         if (str[i - 1] < str[i])
         {
@@ -28,13 +32,13 @@ bool next_permutation(char *str)
             break;
         }
     }
-    if (index_smaller == -1)
+    if (index_smaller == NOT_MODIIFICATION)
     {
         return false;
     }
-    int index_min = 0;
+    size_t index_min = 0;
     char min = '9';
-    for (int i = strlen(str) - 1; i > index_smaller; --i)
+    for (size_t i = strlen(str) - 1; i > index_smaller; --i)
     {
         if (str[i] <= min && str[i] > str[index_smaller])
         {

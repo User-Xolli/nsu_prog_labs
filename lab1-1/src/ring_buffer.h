@@ -1,7 +1,9 @@
 #ifndef RING_BUFFER_H
 #define RING_BUFFER_H
 
-#define K 5
+#include <stddef.h>
+
+#define K 9
 #define SIZE (1 << K)
 
 struct RingBuffer
@@ -11,8 +13,8 @@ struct RingBuffer
     unsigned char data[SIZE];
 };
 
-void write(struct RingBuffer *buff, const unsigned char *str, unsigned int len_str);
-unsigned char get_elem(const struct RingBuffer *buff, unsigned int i);
+void write(struct RingBuffer *buff, const unsigned char *str, size_t len_str);
+unsigned char get_elem(const struct RingBuffer *buff, size_t i);
 void constructor(struct RingBuffer *buff);
 
 #endif

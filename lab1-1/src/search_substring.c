@@ -48,8 +48,7 @@ static int hash_with_new_symb(int symbol, int hash_str, size_t len_str)
     return hash_str;
 }
 
-static void
-comparison(int hash_pattern, int hash_string, const unsigned char *pattern, struct RingBuffer *string, size_t pos)
+static void comparison(int hash_pattern, int hash_string, const unsigned char *pattern, struct RingBuffer *string, size_t pos)
 {
     size_t len = strlen((const char *)pattern);
     if (hash_string == hash_pattern)

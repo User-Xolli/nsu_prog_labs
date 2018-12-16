@@ -25,11 +25,11 @@ static size_t power(size_t a, size_t b)
     }
 }
 
-static int hash(const unsigned char *str)
 /**
     * Hash function:
     * hash(str[0],...,str[N-1]) = sum((str[i] % base) * (base^i))
     */
+static int hash(const unsigned char *str)
 {
     int h = 0;
     for (int i = (int)strlen((const char *)str) - 1; i >= 0; --i)
@@ -48,14 +48,15 @@ static int hash_with_new_symb(int symbol, int hash_str, size_t len_str)
     return hash_str;
 }
 
-static void comparison(int hash_pattern, int hash_string, const unsigned char *pattern, struct RingBuffer *string, size_t pos)
+static void comparison(int hash_pattern, int hash_string, const unsigned char *pattern,
+        struct RingBuffer *string, size_t pos)
 {
     size_t len = strlen((const char *)pattern);
     if (hash_string == hash_pattern)
     {
         for (size_t i = pos - len; i < pos; ++i)
         {
-            printf("%d ", i); // "%zu" doesn't work for Windows
+            printf("%Iu ", i); // "%zu" doesn't work for Windows
             if (get_elem(string, i) != pattern[i + len - pos])
             {
                 break;

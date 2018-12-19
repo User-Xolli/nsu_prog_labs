@@ -3,7 +3,7 @@ project(lab4 C)
 
 set(CMAKE_C_STANDARD 99)
 
-set(SRC src/main.c)
+set(SRC src/main.c src/calculator.c src/calculator.h)
 
 add_executable(${PROJECT_NAME} ${SRC})
 

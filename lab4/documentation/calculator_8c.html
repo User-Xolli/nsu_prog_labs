@@ -1,0 +1,582 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>lab4: Файл calculator.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">lab4
+   </div>
+   <div id="projectbrief">calculator</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Структуры данных</a> &#124;
+<a href="#define-members">Макросы</a> &#124;
+<a href="#enum-members">Перечисления</a> &#124;
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">Файл calculator.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Файл с реализацией калькулятора  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;ctype.h&gt;</code><br />
+<code>#include &lt;iso646.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="calculator_8h_source.html">calculator.h</a>&quot;</code><br />
+</div>
+<p><a href="calculator_8c_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Структуры данных</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_lexem.html">Lexem</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Лексемы - это то, из чего состоят арифметические выражения  <a href="struct_lexem.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Макросы</h2></td></tr>
+<tr class="memitem:a79bcfb6bde984f42d1124b068a509af7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculator_8c.html#a79bcfb6bde984f42d1124b068a509af7">BASE</a>&#160;&#160;&#160;10</td></tr>
+<tr class="memdesc:a79bcfb6bde984f42d1124b068a509af7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Основание системы счисления чисел в вычисляемом арифметическом выражении  <a href="#a79bcfb6bde984f42d1124b068a509af7">Подробнее...</a><br /></td></tr>
+<tr class="separator:a79bcfb6bde984f42d1124b068a509af7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Перечисления</h2></td></tr>
+<tr class="memitem:a8986d5920225a120f3e55677a487b390"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculator_8c.html#a8986d5920225a120f3e55677a487b390">Type_Literal</a> { <br />
+&#160;&#160;<a class="el" href="calculator_8c.html#a8986d5920225a120f3e55677a487b390a12a90dfe20486bbe3e075afcd19ef2d0">NUMBER</a>, 
+<a class="el" href="calculator_8c.html#a8986d5920225a120f3e55677a487b390af613d73b4e7b570ffd967df4a13c4225">MINUS</a>, 
+<a class="el" href="calculator_8c.html#a8986d5920225a120f3e55677a487b390a87fe59ef12c3d13dc2a4d14c9b16c1f9">PLUS</a>, 
+<a class="el" href="calculator_8c.html#a8986d5920225a120f3e55677a487b390a5e7c6c15c264725d0946abb88905216e">MULTIPLICATION</a>, 
+<br />
+&#160;&#160;<a class="el" href="calculator_8c.html#a8986d5920225a120f3e55677a487b390a59aef4d2cd32f6dda27ae905042c46e6">DIVISION</a>, 
+<a class="el" href="calculator_8c.html#a8986d5920225a120f3e55677a487b390a81781502ef65c51d065a5387efa47096">OPEN_BRACKET</a>, 
+<a class="el" href="calculator_8c.html#a8986d5920225a120f3e55677a487b390a20724863756c9120e158522dc2fd8c1b">CLOSE_BRACKET</a>, 
+<a class="el" href="calculator_8c.html#a8986d5920225a120f3e55677a487b390adc6f24fd6915a3f2786a1b7045406924">END</a>
+<br />
+ }<tr class="memdesc:a8986d5920225a120f3e55677a487b390"><td class="mdescLeft">&#160;</td><td class="mdescRight">Набор типов лексем  <a href="calculator_8c.html#a8986d5920225a120f3e55677a487b390">Подробнее...</a><br /></td></tr>
+</td></tr>
+<tr class="separator:a8986d5920225a120f3e55677a487b390"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ad065aea73f03b982b4fbc3efd7ab33a7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculator_8c.html#ad065aea73f03b982b4fbc3efd7ab33a7">syntax_error</a> (void)</td></tr>
+<tr class="memdesc:ad065aea73f03b982b4fbc3efd7ab33a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вызывается если арифметическое выражение некорректно  <a href="#ad065aea73f03b982b4fbc3efd7ab33a7">Подробнее...</a><br /></td></tr>
+<tr class="separator:ad065aea73f03b982b4fbc3efd7ab33a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4908d19a46b54c48a73d197d598c135d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculator_8c.html#a4908d19a46b54c48a73d197d598c135d">division_zero</a> (void)</td></tr>
+<tr class="memdesc:a4908d19a46b54c48a73d197d598c135d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вызывается в случае деления на ноль  <a href="#a4908d19a46b54c48a73d197d598c135d">Подробнее...</a><br /></td></tr>
+<tr class="separator:a4908d19a46b54c48a73d197d598c135d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0de2890c463720515c9288f095730edf"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculator_8c.html#a0de2890c463720515c9288f095730edf">valid_character</a> (char symbol)</td></tr>
+<tr class="memdesc:a0de2890c463720515c9288f095730edf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет валидность символа в арифметическом выражении  <a href="#a0de2890c463720515c9288f095730edf">Подробнее...</a><br /></td></tr>
+<tr class="separator:a0de2890c463720515c9288f095730edf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad980e546034114ade41236140c6a7b30"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculator_8c.html#ad980e546034114ade41236140c6a7b30">todigit</a> (char number)</td></tr>
+<tr class="memdesc:ad980e546034114ade41236140c6a7b30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Перевод цифры из char в int.  <a href="#ad980e546034114ade41236140c6a7b30">Подробнее...</a><br /></td></tr>
+<tr class="separator:ad980e546034114ade41236140c6a7b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9715ac8956b2b017b29c6e798bdee886"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculator_8c.html#a9715ac8956b2b017b29c6e798bdee886">next_lexem</a> (struct <a class="el" href="struct_lexem.html">Lexem</a> *current, char **element_expression)</td></tr>
+<tr class="memdesc:a9715ac8956b2b017b29c6e798bdee886"><td class="mdescLeft">&#160;</td><td class="mdescRight">Совершает переход к следующей лексеме  <a href="#a9715ac8956b2b017b29c6e798bdee886">Подробнее...</a><br /></td></tr>
+<tr class="separator:a9715ac8956b2b017b29c6e798bdee886"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a407e7a21c2c82a33263e691ec7532b89"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculator_8c.html#a407e7a21c2c82a33263e691ec7532b89">expression</a> (struct <a class="el" href="struct_lexem.html">Lexem</a> *current, char **element_expression)</td></tr>
+<tr class="memdesc:a407e7a21c2c82a33263e691ec7532b89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вычисляет значение выражения  <a href="#a407e7a21c2c82a33263e691ec7532b89">Подробнее...</a><br /></td></tr>
+<tr class="separator:a407e7a21c2c82a33263e691ec7532b89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abaaaebd63ed8a52899250bb62131725c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculator_8c.html#abaaaebd63ed8a52899250bb62131725c">multiplier</a> (struct <a class="el" href="struct_lexem.html">Lexem</a> *current, char **element_expression)</td></tr>
+<tr class="memdesc:abaaaebd63ed8a52899250bb62131725c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вычисляет значение множителя  <a href="#abaaaebd63ed8a52899250bb62131725c">Подробнее...</a><br /></td></tr>
+<tr class="separator:abaaaebd63ed8a52899250bb62131725c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f1db025abb34f0b69bd970af319c1d1"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculator_8c.html#a5f1db025abb34f0b69bd970af319c1d1">summand</a> (struct <a class="el" href="struct_lexem.html">Lexem</a> *current, char **element_expression)</td></tr>
+<tr class="memdesc:a5f1db025abb34f0b69bd970af319c1d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вычисляет значение слагаемого  <a href="#a5f1db025abb34f0b69bd970af319c1d1">Подробнее...</a><br /></td></tr>
+<tr class="separator:a5f1db025abb34f0b69bd970af319c1d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd80e01d145948acdfc4eca253471713"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculator_8c.html#acd80e01d145948acdfc4eca253471713">calculator</a> (char *main_expression)</td></tr>
+<tr class="separator:acd80e01d145948acdfc4eca253471713"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Файл с реализацией калькулятора </p>
+<p>Как работает данный калькулятор?<br />
+В арифметическом выражении есть три типа составляющих - выражение, слагаемое, множитель<br />
+Выражение это сумма слагаемых<br />
+Слагаемое это произведение множителей<br />
+Множитель это число либо выражение в скобках<br />
+Данный калькуятор рекурсивно вычисляет значение арифметического выражения </p>
+
+<p class="definition">См. определение в файле <a class="el" href="calculator_8c_source.html">calculator.c</a></p>
+</div><h2 class="groupheader">Макросы</h2>
+<a id="a79bcfb6bde984f42d1124b068a509af7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79bcfb6bde984f42d1124b068a509af7">&#9670;&nbsp;</a></span>BASE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BASE&#160;&#160;&#160;10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Основание системы счисления чисел в вычисляемом арифметическом выражении </p>
+
+<p class="definition">См. определение в файле <a class="el" href="calculator_8c_source.html">calculator.c</a> строка <a class="el" href="calculator_8c_source.html#l00021">21</a></p>
+
+</div>
+</div>
+<h2 class="groupheader">Перечисления</h2>
+<a id="a8986d5920225a120f3e55677a487b390"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8986d5920225a120f3e55677a487b390">&#9670;&nbsp;</a></span>Type_Literal</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="calculator_8c.html#a8986d5920225a120f3e55677a487b390">Type_Literal</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Набор типов лексем </p>
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a8986d5920225a120f3e55677a487b390a12a90dfe20486bbe3e075afcd19ef2d0"></a>NUMBER&#160;</td><td class="fielddoc"><p>Число </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8986d5920225a120f3e55677a487b390af613d73b4e7b570ffd967df4a13c4225"></a>MINUS&#160;</td><td class="fielddoc"><p>операция -. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8986d5920225a120f3e55677a487b390a87fe59ef12c3d13dc2a4d14c9b16c1f9"></a>PLUS&#160;</td><td class="fielddoc"><p>операция +. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8986d5920225a120f3e55677a487b390a5e7c6c15c264725d0946abb88905216e"></a>MULTIPLICATION&#160;</td><td class="fielddoc"><p>операция *. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8986d5920225a120f3e55677a487b390a59aef4d2cd32f6dda27ae905042c46e6"></a>DIVISION&#160;</td><td class="fielddoc"><p>операция /. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8986d5920225a120f3e55677a487b390a81781502ef65c51d065a5387efa47096"></a>OPEN_BRACKET&#160;</td><td class="fielddoc"><p>открытая скобка </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8986d5920225a120f3e55677a487b390a20724863756c9120e158522dc2fd8c1b"></a>CLOSE_BRACKET&#160;</td><td class="fielddoc"><p>закрытая скобка </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8986d5920225a120f3e55677a487b390adc6f24fd6915a3f2786a1b7045406924"></a>END&#160;</td><td class="fielddoc"><p>конец строки (/0 либо /n) </p>
+</td></tr>
+</table>
+
+<p class="definition">См. определение в файле <a class="el" href="calculator_8c_source.html">calculator.c</a> строка <a class="el" href="calculator_8c_source.html#l00024">24</a></p>
+
+</div>
+</div>
+<h2 class="groupheader">Функции</h2>
+<a id="acd80e01d145948acdfc4eca253471713"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd80e01d145948acdfc4eca253471713">&#9670;&nbsp;</a></span>calculator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int calculator </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>main_expression</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Для того чтобы запустить калькулятор, вызовите данную функцию<br />
+Допустимые операции: +, -, *, /<br />
+Скобки использовать тоже можно<br />
+Числа целые<br />
+Отрицательные числа недопустимы, но могут быть в качестве промежуточных значений или результата<br />
+</p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">main_expression</td><td>строка с арифметическим выражением, которое необходимо посчитать </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Значение арифметического выражения либо завершает программу и выводит "syntax error" если выражение не корректно </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="calculator_8c_source.html">calculator.c</a> строка <a class="el" href="calculator_8c_source.html#l00264">264</a></p>
+
+</div>
+</div>
+<a id="a4908d19a46b54c48a73d197d598c135d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4908d19a46b54c48a73d197d598c135d">&#9670;&nbsp;</a></span>division_zero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void division_zero </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Вызывается в случае деления на ноль </p>
+<p>В результате работа всей программы завершается </p>
+
+<p class="definition">См. определение в файле <a class="el" href="calculator_8c_source.html">calculator.c</a> строка <a class="el" href="calculator_8c_source.html#l00066">66</a></p>
+
+</div>
+</div>
+<a id="a407e7a21c2c82a33263e691ec7532b89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a407e7a21c2c82a33263e691ec7532b89">&#9670;&nbsp;</a></span>expression()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int expression </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_lexem.html">Lexem</a> *&#160;</td>
+          <td class="paramname"><em>current</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>element_expression</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Вычисляет значение выражения </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">current</td><td>указатель на текущую лексему<br />
+</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">element_expression</td><td>указатель на символ следующий за началом лексемы на которую указывает current<br />
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Значение выражения которое начинается с лексемы на которую указывает current </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="calculator_8c_source.html">calculator.c</a> строка <a class="el" href="calculator_8c_source.html#l00244">244</a></p>
+
+</div>
+</div>
+<a id="abaaaebd63ed8a52899250bb62131725c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abaaaebd63ed8a52899250bb62131725c">&#9670;&nbsp;</a></span>multiplier()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int multiplier </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_lexem.html">Lexem</a> *&#160;</td>
+          <td class="paramname"><em>current</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>element_expression</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Вычисляет значение множителя </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">current</td><td>указатель на текущую лексему<br />
+</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">element_expression</td><td>указатель на символ следующий за началом лексемы на которую указывает current<br />
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Значение множителя которое начинается с лексемы на которую указывает current </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="calculator_8c_source.html">calculator.c</a> строка <a class="el" href="calculator_8c_source.html#l00175">175</a></p>
+
+</div>
+</div>
+<a id="a9715ac8956b2b017b29c6e798bdee886"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9715ac8956b2b017b29c6e798bdee886">&#9670;&nbsp;</a></span>next_lexem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void next_lexem </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_lexem.html">Lexem</a> *&#160;</td>
+          <td class="paramname"><em>current</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>element_expression</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Совершает переход к следующей лексеме </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">current</td><td>указатель на текущую лексему<br />
+</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">element_expression</td><td>указатель на символ следующий за лексемой на которую указывает current </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="calculator_8c_source.html">calculator.c</a> строка <a class="el" href="calculator_8c_source.html#l00101">101</a></p>
+
+</div>
+</div>
+<a id="a5f1db025abb34f0b69bd970af319c1d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f1db025abb34f0b69bd970af319c1d1">&#9670;&nbsp;</a></span>summand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int summand </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_lexem.html">Lexem</a> *&#160;</td>
+          <td class="paramname"><em>current</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>element_expression</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Вычисляет значение слагаемого </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">current</td><td>указатель на текущую лексему<br />
+</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">element_expression</td><td>указатель на символ следующий за началом лексемы на которую указывает current<br />
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Значение слагаемого которое начинается с лексемы на которую указывает current </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="calculator_8c_source.html">calculator.c</a> строка <a class="el" href="calculator_8c_source.html#l00210">210</a></p>
+
+</div>
+</div>
+<a id="ad065aea73f03b982b4fbc3efd7ab33a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad065aea73f03b982b4fbc3efd7ab33a7">&#9670;&nbsp;</a></span>syntax_error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void syntax_error </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Вызывается если арифметическое выражение некорректно </p>
+<p>В результате работа всей программы завершается </p>
+
+<p class="definition">См. определение в файле <a class="el" href="calculator_8c_source.html">calculator.c</a> строка <a class="el" href="calculator_8c_source.html#l00055">55</a></p>
+
+</div>
+</div>
+<a id="ad980e546034114ade41236140c6a7b30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad980e546034114ade41236140c6a7b30">&#9670;&nbsp;</a></span>todigit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int todigit </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>number</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Перевод цифры из char в int. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">number</td><td>символ цифры которую необходимо перевести в int </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>цифра в типе int </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="calculator_8c_source.html">calculator.c</a> строка <a class="el" href="calculator_8c_source.html#l00090">90</a></p>
+
+</div>
+</div>
+<a id="a0de2890c463720515c9288f095730edf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0de2890c463720515c9288f095730edf">&#9670;&nbsp;</a></span>valid_character()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool valid_character </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>symbol</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Проверяет валидность символа в арифметическом выражении </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">symbol</td><td>символ из арифметического выражения </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Является ли символ допустимым для арифметического выражения </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="calculator_8c_source.html">calculator.c</a> строка <a class="el" href="calculator_8c_source.html#l00078">78</a></p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

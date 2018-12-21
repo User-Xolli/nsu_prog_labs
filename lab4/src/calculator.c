@@ -1,51 +1,103 @@
+/**
+ * \file
+ * \brief Файл с реализацией калькулятора
+ *
+ * Как работает данный калькулятор?\n
+ * В арифметическом выражении есть три типа составляющих - выражение, слагаемое, множитель\n
+ * Выражение это сумма слагаемых\n
+ * Слагаемое это произведение множителей\n
+ * Множитель это число либо выражение в скобках\n
+ * Данный калькуятор рекурсивно вычисляет значение арифметического выражения
+ */
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
 #include <ctype.h>
-#include <iso646.h> // for using or and
+#include <iso646.h> // for using "or" & "and"
 
 #include "calculator.h"
 
-#define BASE 10
+#define BASE 10 ///< Основание системы счисления чисел в вычисляемом арифметическом выражении
 
-#define NUMBER 0
-#define MINUS 1
-#define PLUS 2
-#define MULTIPLICATION 3
-#define DIVISION 4
-#define OPEN_BRACKET 5
-#define CLOSE_BRACKET 6
-#define END 7
-
-struct Lexem
+/// Набор типов лексем
+enum Type_Literal
 {
-    int type;
-    int value;
+    NUMBER, ///< Число
+    MINUS, ///< операция -
+    PLUS, ///< операция +
+    MULTIPLICATION, ///< операция *
+    DIVISION, ///< операция /
+    OPEN_BRACKET, ///< открытая скобка
+    CLOSE_BRACKET, ///< закрытая скобка
+    END ///< конец строки (/0 либо /n)
 };
 
+/**
+ * \brief Лексемы - это то, из чего состоят арифметические выражения
+ *
+ * Лексемами арифметического выражения являются арифметические операции и числа\n
+ * \note
+ * Одно число - одна лексема\n
+ * Одна цифра это не лексема
+ */
+struct Lexem
+{
+    int type; ///< Равен одному из значений из Type_Literal
+    int value; ///< Это поле осмысленно только когда type = NUMBER
+};
+
+/**
+ * \brief Вызывается если арифметическое выражение некорректно
+ *
+ * В результате работа всей программы завершается
+ */
 static void syntax_error(void)
 {
     printf("syntax error\n");
     exit(EXIT_SUCCESS);
 }
 
+/**
+ * \brief Вызывается в случае деления на ноль
+ *
+ * В результате работа всей программы завершается
+ */
 static void division_zero(void)
 {
     printf("division by zero\n");
     exit(EXIT_SUCCESS);
 }
 
-static bool valid_haracter(char symbol)
+/**
+ * \brief Проверяет валидность символа в арифметическом выражении
+ *
+ * \param[in] symbol символ из арифметического выражения
+ * \return Является ли символ допустимым для арифметического выражения
+ */
+static bool valid_character(char symbol)
 {
     return isdigit(symbol) or symbol == '+' or symbol == '-' or symbol == '/' or
            symbol == '*' or symbol == '(' or symbol == ')';
 }
 
+/**
+ * \brief Перевод цифры из char в int
+ *
+ * \param[in] number символ цифры которую необходимо перевести в int
+ * \return цифра в типе int
+ */
 static int todigit(char number)
 {
     return number - '0';
 }
 
+/**
+ * \brief Совершает переход к следующей лексеме
+ *
+ * \param[out] current указатель на текущую лексему\n
+ * \param[in,out] element_expression указатель на символ следующий за лексемой на которую указывает current
+ */
 static void next_lexem(struct Lexem *current, char **element_expression)
 {
     while (**element_expression == ' ')
@@ -59,7 +111,7 @@ static void next_lexem(struct Lexem *current, char **element_expression)
         return;
     }
 
-    if (!valid_haracter(**element_expression))
+    if (!valid_character(**element_expression))
     {
         syntax_error();
     }
@@ -113,6 +165,13 @@ static void next_lexem(struct Lexem *current, char **element_expression)
 
 static int expression(struct Lexem *current, char **element_expression);
 
+/**
+ * \brief Вычисляет значение множителя
+ *
+ * \param[in,out] current указатель на текущую лексему\n
+ * \param[in,out] element_expression указатель на символ следующий за началом лексемы на которую указывает current\n
+ * \return Значение множителя которое начинается с лексемы на которую указывает current
+ */
 static int multiplier(struct Lexem *current, char **element_expression)
 {
     int ans = 0;
@@ -141,6 +200,13 @@ static int multiplier(struct Lexem *current, char **element_expression)
     return ans;
 }
 
+/**
+ * \brief Вычисляет значение слагаемого
+ *
+ * \param[in,out] current указатель на текущую лексему\n
+ * \param[in,out] element_expression указатель на символ следующий за началом лексемы на которую указывает current\n
+ * \return Значение слагаемого которое начинается с лексемы на которую указывает current
+ */
 static int summand(struct Lexem *current, char **element_expression)
 {
     int ans = multiplier(current, element_expression);
@@ -168,6 +234,13 @@ static int summand(struct Lexem *current, char **element_expression)
     return ans;
 }
 
+/**
+ * \brief Вычисляет значение выражения
+ *
+ * \param[in,out] current указатель на текущую лексему\n
+ * \param[in,out] element_expression указатель на символ следующий за началом лексемы на которую указывает current\n
+ * \return Значение выражения которое начинается с лексемы на которую указывает current
+ */
 static int expression(struct Lexem *current, char **element_expression)
 {
     int ans = summand(current, element_expression);

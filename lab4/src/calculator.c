@@ -97,70 +97,72 @@ static int todigit(char number)
  *
  * \param[out] current указатель на текущую лексему\n
  * \param[in,out] element_expression указатель на символ следующий за лексемой на которую указывает current
+ * \return Указатель на символ следующий за новым current
  */
-static void next_lexem(struct Lexem *current, char **element_expression)
+static char* next_lexem(struct Lexem *current, char *element_expression)
 {
-    while (**element_expression == ' ')
+    while (*element_expression == ' ')
     {
-        ++(*element_expression);
+        ++element_expression;
     }
 
-    if (**element_expression == '\0' or **element_expression == '\n')
+    if (*element_expression == '\0' or *element_expression == '\n')
     {
         current->type = END;
-        return;
+        return element_expression;
     }
 
-    if (!valid_character(**element_expression))
+    if (!valid_character(*element_expression))
     {
         syntax_error();
     }
 
-    if (**element_expression == '+')
+    if (*element_expression == '+')
     {
         current->type = PLUS;
-        ++(*element_expression);
-        return;
+        ++element_expression;
+        return element_expression;
     }
-    if (**element_expression == '-')
+    if (*element_expression == '-')
     {
         current->type = MINUS;
-        ++(*element_expression);
-        return;
+        ++element_expression;
+        return element_expression;
     }
-    if (**element_expression == '*')
+    if (*element_expression == '*')
     {
         current->type = MULTIPLICATION;
-        ++(*element_expression);
-        return;
+        ++element_expression;
+        return element_expression;
     }
-    if (**element_expression == '/')
+    if (*element_expression == '/')
     {
         current->type = DIVISION;
-        ++(*element_expression);
-        return;
+        ++element_expression;
+        return element_expression;
     }
-    if (**element_expression == '(')
+    if (*element_expression == '(')
     {
         current->type = OPEN_BRACKET;
-        ++(*element_expression);
-        return;
+        ++element_expression;
+        return element_expression;
     }
-    if (**element_expression == ')')
+    if (*element_expression == ')')
     {
         current->type = CLOSE_BRACKET;
-        ++(*element_expression);
-        return;
+        ++element_expression;
+        return element_expression;
     }
 
     current->value = 0;
-    while (isdigit(**element_expression))
+    while (isdigit(*element_expression))
     {
         current->value *= BASE;
-        current->value += todigit(**element_expression);
-        ++(*element_expression);
+        current->value += todigit(*element_expression);
+        ++element_expression;
     }
     current->type = NUMBER;
+    return element_expression;
 }
 
 static int expression(struct Lexem *current, char **element_expression);
@@ -178,11 +180,11 @@ static int multiplier(struct Lexem *current, char **element_expression)
     if (current->type == NUMBER)
     {
         ans = current->value;
-        next_lexem(current, element_expression);
+        *element_expression = next_lexem(current, *element_expression);
     }
     else if (current->type == OPEN_BRACKET)
     {
-        next_lexem(current, element_expression);
+        *element_expression = next_lexem(current, *element_expression);
         ans = expression(current, element_expression);
         if (current->type != CLOSE_BRACKET)
         {
@@ -190,7 +192,7 @@ static int multiplier(struct Lexem *current, char **element_expression)
         }
         else
         {
-            next_lexem(current, element_expression);
+            *element_expression = next_lexem(current, *element_expression);
         }
     }
     else
@@ -214,12 +216,12 @@ static int summand(struct Lexem *current, char **element_expression)
     {
         if (current->type == MULTIPLICATION)
         {
-            next_lexem(current, element_expression);
+            *element_expression = next_lexem(current, *element_expression);
             ans *= multiplier(current, element_expression);
         }
         else
         {
-            next_lexem(current, element_expression);
+            *element_expression = next_lexem(current, *element_expression);
             int divider = multiplier(current, element_expression);
             if (divider != 0)
             {
@@ -248,12 +250,12 @@ static int expression(struct Lexem *current, char **element_expression)
     {
         if (current->type == PLUS)
         {
-            next_lexem(current, element_expression);
+            *element_expression = next_lexem(current, *element_expression);
             ans += summand(current, element_expression);
         }
         else
         {
-            next_lexem(current, element_expression);
+            *element_expression = next_lexem(current, *element_expression);
             ans -= summand(current, element_expression);
         }
     }
@@ -264,7 +266,7 @@ static int expression(struct Lexem *current, char **element_expression)
 int calculator(char *main_expression)
 {
     struct Lexem current;
-    next_lexem(&current, &main_expression);
+    main_expression = next_lexem(&current, main_expression);
     int ans = expression(&current, &main_expression);
     if (current.type != END)
     {

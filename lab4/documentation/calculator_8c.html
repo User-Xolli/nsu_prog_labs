@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>lab4: Файл calculator.c</title>
+<title>lab4: Файл src/calculator.c</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,8 +22,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">lab4
+   &#160;<span id="projectnumber">4</span>
    </div>
-   <div id="projectbrief">calculator</div>
+   <div id="projectbrief">Лабораторная работа №4, НГУ ФИТ 1 курс</div>
   </td>
  </tr>
  </tbody>
@@ -57,6 +58,10 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
@@ -77,9 +82,7 @@ $(function() {
 <code>#include &lt;ctype.h&gt;</code><br />
 <code>#include &lt;iso646.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="calculator_8h_source.html">calculator.h</a>&quot;</code><br />
-</div>
-<p><a href="calculator_8c_source.html">См. исходные тексты.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Структуры данных</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_lexem.html">Lexem</a></td></tr>
@@ -123,9 +126,9 @@ $(function() {
 <tr class="memitem:ad980e546034114ade41236140c6a7b30"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculator_8c.html#ad980e546034114ade41236140c6a7b30">todigit</a> (char number)</td></tr>
 <tr class="memdesc:ad980e546034114ade41236140c6a7b30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Перевод цифры из char в int.  <a href="#ad980e546034114ade41236140c6a7b30">Подробнее...</a><br /></td></tr>
 <tr class="separator:ad980e546034114ade41236140c6a7b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9715ac8956b2b017b29c6e798bdee886"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculator_8c.html#a9715ac8956b2b017b29c6e798bdee886">next_lexem</a> (struct <a class="el" href="struct_lexem.html">Lexem</a> *current, char **element_expression)</td></tr>
-<tr class="memdesc:a9715ac8956b2b017b29c6e798bdee886"><td class="mdescLeft">&#160;</td><td class="mdescRight">Совершает переход к следующей лексеме  <a href="#a9715ac8956b2b017b29c6e798bdee886">Подробнее...</a><br /></td></tr>
-<tr class="separator:a9715ac8956b2b017b29c6e798bdee886"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79b6750d22af0bca816c453150734571"><td class="memItemLeft" align="right" valign="top">static char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculator_8c.html#a79b6750d22af0bca816c453150734571">next_lexem</a> (struct <a class="el" href="struct_lexem.html">Lexem</a> *current, char *element_expression)</td></tr>
+<tr class="memdesc:a79b6750d22af0bca816c453150734571"><td class="mdescLeft">&#160;</td><td class="mdescRight">Совершает переход к следующей лексеме  <a href="#a79b6750d22af0bca816c453150734571">Подробнее...</a><br /></td></tr>
+<tr class="separator:a79b6750d22af0bca816c453150734571"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a407e7a21c2c82a33263e691ec7532b89"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculator_8c.html#a407e7a21c2c82a33263e691ec7532b89">expression</a> (struct <a class="el" href="struct_lexem.html">Lexem</a> *current, char **element_expression)</td></tr>
 <tr class="memdesc:a407e7a21c2c82a33263e691ec7532b89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вычисляет значение выражения  <a href="#a407e7a21c2c82a33263e691ec7532b89">Подробнее...</a><br /></td></tr>
 <tr class="separator:a407e7a21c2c82a33263e691ec7532b89"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -146,8 +149,6 @@ $(function() {
 Слагаемое это произведение множителей<br />
 Множитель это число либо выражение в скобках<br />
 Данный калькуятор рекурсивно вычисляет значение арифметического выражения </p>
-
-<p class="definition">См. определение в файле <a class="el" href="calculator_8c_source.html">calculator.c</a></p>
 </div><h2 class="groupheader">Макросы</h2>
 <a id="a79bcfb6bde984f42d1124b068a509af7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a79bcfb6bde984f42d1124b068a509af7">&#9670;&nbsp;</a></span>BASE</h2>
@@ -162,8 +163,6 @@ $(function() {
 </div><div class="memdoc">
 
 <p>Основание системы счисления чисел в вычисляемом арифметическом выражении </p>
-
-<p class="definition">См. определение в файле <a class="el" href="calculator_8c_source.html">calculator.c</a> строка <a class="el" href="calculator_8c_source.html#l00021">21</a></p>
 
 </div>
 </div>
@@ -200,8 +199,6 @@ $(function() {
 </td></tr>
 </table>
 
-<p class="definition">См. определение в файле <a class="el" href="calculator_8c_source.html">calculator.c</a> строка <a class="el" href="calculator_8c_source.html#l00024">24</a></p>
-
 </div>
 </div>
 <h2 class="groupheader">Функции</h2>
@@ -233,8 +230,6 @@ $(function() {
 </dl>
 <dl class="section return"><dt>Возвращает</dt><dd>Значение арифметического выражения либо завершает программу и выводит "syntax error" если выражение не корректно </dd></dl>
 
-<p class="definition">См. определение в файле <a class="el" href="calculator_8c_source.html">calculator.c</a> строка <a class="el" href="calculator_8c_source.html#l00264">264</a></p>
-
 </div>
 </div>
 <a id="a4908d19a46b54c48a73d197d598c135d"></a>
@@ -263,8 +258,6 @@ $(function() {
 
 <p>Вызывается в случае деления на ноль </p>
 <p>В результате работа всей программы завершается </p>
-
-<p class="definition">См. определение в файле <a class="el" href="calculator_8c_source.html">calculator.c</a> строка <a class="el" href="calculator_8c_source.html#l00066">66</a></p>
 
 </div>
 </div>
@@ -314,8 +307,6 @@ $(function() {
 </dl>
 <dl class="section return"><dt>Возвращает</dt><dd>Значение выражения которое начинается с лексемы на которую указывает current </dd></dl>
 
-<p class="definition">См. определение в файле <a class="el" href="calculator_8c_source.html">calculator.c</a> строка <a class="el" href="calculator_8c_source.html#l00244">244</a></p>
-
 </div>
 </div>
 <a id="abaaaebd63ed8a52899250bb62131725c"></a>
@@ -364,12 +355,10 @@ $(function() {
 </dl>
 <dl class="section return"><dt>Возвращает</dt><dd>Значение множителя которое начинается с лексемы на которую указывает current </dd></dl>
 
-<p class="definition">См. определение в файле <a class="el" href="calculator_8c_source.html">calculator.c</a> строка <a class="el" href="calculator_8c_source.html#l00175">175</a></p>
-
 </div>
 </div>
-<a id="a9715ac8956b2b017b29c6e798bdee886"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9715ac8956b2b017b29c6e798bdee886">&#9670;&nbsp;</a></span>next_lexem()</h2>
+<a id="a79b6750d22af0bca816c453150734571"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79b6750d22af0bca816c453150734571">&#9670;&nbsp;</a></span>next_lexem()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -378,7 +367,7 @@ $(function() {
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void next_lexem </td>
+          <td class="memname">static char* next_lexem </td>
           <td>(</td>
           <td class="paramtype">struct <a class="el" href="struct_lexem.html">Lexem</a> *&#160;</td>
           <td class="paramname"><em>current</em>, </td>
@@ -386,7 +375,7 @@ $(function() {
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char **&#160;</td>
+          <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>element_expression</em>&#160;</td>
         </tr>
         <tr>
@@ -411,8 +400,7 @@ $(function() {
   </table>
   </dd>
 </dl>
-
-<p class="definition">См. определение в файле <a class="el" href="calculator_8c_source.html">calculator.c</a> строка <a class="el" href="calculator_8c_source.html#l00101">101</a></p>
+<dl class="section return"><dt>Возвращает</dt><dd>Указатель на символ следующий за новым current </dd></dl>
 
 </div>
 </div>
@@ -462,8 +450,6 @@ $(function() {
 </dl>
 <dl class="section return"><dt>Возвращает</dt><dd>Значение слагаемого которое начинается с лексемы на которую указывает current </dd></dl>
 
-<p class="definition">См. определение в файле <a class="el" href="calculator_8c_source.html">calculator.c</a> строка <a class="el" href="calculator_8c_source.html#l00210">210</a></p>
-
 </div>
 </div>
 <a id="ad065aea73f03b982b4fbc3efd7ab33a7"></a>
@@ -492,8 +478,6 @@ $(function() {
 
 <p>Вызывается если арифметическое выражение некорректно </p>
 <p>В результате работа всей программы завершается </p>
-
-<p class="definition">См. определение в файле <a class="el" href="calculator_8c_source.html">calculator.c</a> строка <a class="el" href="calculator_8c_source.html#l00055">55</a></p>
 
 </div>
 </div>
@@ -530,8 +514,6 @@ $(function() {
 </dl>
 <dl class="section return"><dt>Возвращает</dt><dd>цифра в типе int </dd></dl>
 
-<p class="definition">См. определение в файле <a class="el" href="calculator_8c_source.html">calculator.c</a> строка <a class="el" href="calculator_8c_source.html#l00090">90</a></p>
-
 </div>
 </div>
 <a id="a0de2890c463720515c9288f095730edf"></a>
@@ -566,8 +548,6 @@ $(function() {
   </dd>
 </dl>
 <dl class="section return"><dt>Возвращает</dt><dd>Является ли символ допустимым для арифметического выражения </dd></dl>
-
-<p class="definition">См. определение в файле <a class="el" href="calculator_8c_source.html">calculator.c</a> строка <a class="el" href="calculator_8c_source.html#l00078">78</a></p>
 
 </div>
 </div>

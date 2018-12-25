@@ -1,4 +1,7 @@
 # nsu_prog_labs
+
+Documentation: http://138.68.92.242/index.html
+
 ## How-to
 * fork repo
 * setup repo in https://appveyor.com/

@@ -1,6 +1,6 @@
 # nsu_prog_labs
 
-Documentation: http://138.68.92.242/index.html
+Documentation: http://54.165.216.154/
 
 ## How-to
 * fork repo

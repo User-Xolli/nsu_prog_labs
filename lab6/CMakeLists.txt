@@ -3,7 +3,7 @@ project(lab6 C)
 
 set(CMAKE_C_STANDARD 99)
 
-set(SRC src/main.c)
+set(SRC src/main.c src/avl_tree.h src/avl_tree.c)
 
 add_executable(${PROJECT_NAME} ${SRC})
 

@@ -13,7 +13,7 @@
  * \param b Второе число
  * \return Наибольшее из двух чисел
  */
-static int max(int a, int b)
+static int max_int(int a, int b)
 {
     return (a > b) ? a : b;
 }
@@ -51,7 +51,7 @@ static void calc_height(struct avl_tree *tree)
 {
     int height_left = (tree->left != NULL) ? tree->left->height : 0;
     int height_right = (tree->right != NULL) ? tree->right->height : 0;
-    tree->height = max(height_left, height_right) + 1;
+    tree->height = max_int(height_left, height_right) + 1;
 }
 
 /**

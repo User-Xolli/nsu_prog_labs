@@ -1,6 +1,6 @@
 # nsu_prog_labs
 
-Documentation: http://34.219.108.238/
+Documentation: xolli.ga
 
 ## How-to
 * fork repo
